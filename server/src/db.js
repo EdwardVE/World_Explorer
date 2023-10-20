@@ -3,6 +3,7 @@ const { Sequelize } = require("sequelize");
 
 const fs = require('fs');
 const path = require('path');
+
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
@@ -28,12 +29,24 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Country } = sequelize.models;
+const { Country, Activity } = sequelize.models;
 
 // Aca vendrian las relaciones
+Country.belongsToMany(Activity,{ 
+  through: "tuTablaIntermediaria",
+  as: "activities",
+
+})//Muchos a Muchos
+Activity.belongsToMany(Country,{ 
+  through: "tuTablaIntermediaria",
+  as: "countries", 
+})//!Para acceder desde la consola SELECT * FROM "Activities";
+
 // Product.hasMany(Reviews);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+  // Country,
+  // Activity,
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
 };
