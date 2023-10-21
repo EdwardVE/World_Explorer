@@ -1,5 +1,5 @@
 
-import { GET_COUNTRIES, GET_COUNTRY_DETAIL, CLEAN_DETAIL, ORDER, FILTER } from "./action-types";
+import { GET_COUNTRIES, GET_COUNTRY_DETAIL, CLEAN_DETAIL, ORDER, SEARCH_COUNTRY, SEARCH_COUNTRY_ERROR, GET_ACTIVITIES, FILTER_CONTINENT, FILTER_ACTIVITIES } from "./action-types";
 import axios from "axios";
 
 export const getCountries = () => {
@@ -20,11 +20,40 @@ export const getCountryDetail = (id) => {
 export const cleanDetail = () => {
     return { type: CLEAN_DETAIL }
 }
-export const filterCards =(parameter)=>{
-    return { type: FILTER, payload: parameter }
+export const searchCountry = (name) => {
+    return function(dispatch){
+        //console.log(name)
+        axios(`http://localhost:3001/countries/name/${name}`)
+        .then(response => {
+            if (response.status === 200) {
+                dispatch({ type: SEARCH_COUNTRY_ERROR, payload: true })
+                return response.data;
+            }
+        })
+        .then(data =>  dispatch({ type: SEARCH_COUNTRY, payload: data }))
+        .catch(error => {
+            dispatch({ type: SEARCH_COUNTRY_ERROR, payload: false });
+        });
+    }
+    //! if (!data)
+
+}
+
+export const filterContinent =(parameter)=>{
+    return { type: FILTER_CONTINENT, payload: parameter }
 }
 export const orderCards = (orden) => {//!Paises en orden alfabetico, o Actividades
     return { type: ORDER, payload: orden }
+}
+export const getActivites = () => {
+    return function(dispatch){
+        axios('http://localhost:3001/activities')
+        .then(response => response.data)
+        .then(data => dispatch({ type: GET_ACTIVITIES, payload: data }))
+    }
+}
+export const filterActivities =(parameter)=>{
+    return { type: FILTER_ACTIVITIES, payload: parameter }
 }
 
 

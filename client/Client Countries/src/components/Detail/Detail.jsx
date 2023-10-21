@@ -12,8 +12,7 @@ const CountryDetail = () => {
     useEffect(() => {
         dispatch(getCountryDetail(id))
         return () => dispatch(cleanDetail())
-
-    }, [id])
+    }, [id,dispatch])
     const { name, flagImage, continent, capital,subregion,area,population} = countryDetail
 
 
@@ -28,9 +27,6 @@ const CountryDetail = () => {
             {subregion&&<h2>Subregion: {subregion}</h2>}
             {area&&<h2>Area: {area}</h2>}
             <h2>Population: {population}</h2>
-
-
-
         </div>
     )
 }

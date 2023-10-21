@@ -1,43 +1,18 @@
-import { useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCountries } from "../../redux/actions";
-import CardCountry from "../CardCountry/CardCountry";
 import styles from './Countries.module.css';
+import NavBar from "../NavBar/NavBar";
+import Cards from "../Cards/Cards";
 
 
 
 const Countries = () => {
-    const dispatch = useDispatch();
-    const countries = useSelector(state => state.countries)
-
-    useEffect(() => {
-        dispatch(getCountries())
-    }, [dispatch])
-
-
-
     return (
         <div className={styles.countries_container} >
-            <h1>Countries</h1>
-
-                <hr />
-            <div>
-            {
-                countries.map(country => {
-                    return (
-                        <CardCountry
-                            key={country.id}
-                            id={country.id}
-                            flagImage={country.flagImage}
-                            name={country.name}
-                            continent={country.continent}
-                        />
-                    )
-                })
-            }
-            </div>
-
-
+            <h1 className={styles.title}>HOME</h1>
+            <hr />
+            <NavBar/>
+            <hr />
+            <Cards/>
+                {/* //! 2 estados para la pg menor y mayor, una const qye me dice donde comienda y donde termina, pasar el pagina inicial y final, sa hace con  */}
         </div>
     )
 }

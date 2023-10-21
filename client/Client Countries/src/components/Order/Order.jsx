@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { orderCards } from "../../redux/actions"
 import { useDispatch } from "react-redux";
 
@@ -6,22 +5,20 @@ import { useDispatch } from "react-redux";
 
 
 const Order = () => {
-
-    const [aux, setAux]= useState(false);
     const dispatch = useDispatch();
-
     const handleOrder = (event) => {
         return dispatch(orderCards(event.target.value))
-        setAux(true)
     }
+
     return (
-        <div>
+        <span>
             <select onChange={handleOrder} >
-<option value="A">Ascendent</option>
-<option value="B">Descendent</option>
-<option value="population">Population</option>
-</select>
-        </div>
+            <option value="A">Alphabetical Ascendant</option>
+            <option value="B">Alphabetical Descending</option>
+            <option value="populationA">Population Ascendant</option>
+            <option value="populationB">Population Descending</option>
+            </select>
+        </span>
     )
 }
 export default Order;

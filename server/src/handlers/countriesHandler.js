@@ -3,7 +3,7 @@ const { getCountriesDB, getNameCountryDB, getCountryDetailDB, updateDatabaseWith
 
 let isDatabaseUpdated = false;
 
-const getNameCountryHandler = async (req, res) =>{//Query /name?country=Colombia
+const getNameCountryHandler = async (req, res) =>{//Params
     const { country } = req.params;
     console.log(country);
 
@@ -12,9 +12,7 @@ const getNameCountryHandler = async (req, res) =>{//Query /name?country=Colombia
         if (nameCountry && nameCountry.length > 0) {
         res.status(200).json(nameCountry);
         } else {
-        res
-            .status(404)
-            .json({ error: "No se encontró país con ese nombre "+country });
+        res.status(404).json({ error: "No se encontró país con ese nombre "+country });
         }
     } catch (error) {
         res.status(500).json({ error: "Error al buscar el país por el nombre " + error.message });
