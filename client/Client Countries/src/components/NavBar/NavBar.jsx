@@ -5,6 +5,7 @@ import Order from "../Order/Order";
 import Filters from "../Filters/Filters";
 
 const NavBar = ()=> {
+    const refreshPage = () => {window.location.reload()}
 
     return (
         <label className={styles.Nav} >
@@ -12,8 +13,9 @@ const NavBar = ()=> {
         <p></p>
         <button><Link to='/activities'>Create Activities</Link></button>
         <hr />
-        <div> <span>Order: <Order/></span>
-        <span>   Filters <Filters/> </span></div>
+        <div> <span><Order/></span>
+        <span> <Filters/> </span></div>
+        <button onClick={refreshPage}>Refresh Page</button>
         </label>
     )
 }

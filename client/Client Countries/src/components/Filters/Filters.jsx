@@ -7,7 +7,6 @@ const Filter = () => {
         <span>
             <FilterContinents/>
             <FilterActivities/>
-
         </span>
     )
 }

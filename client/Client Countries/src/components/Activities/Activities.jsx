@@ -1,13 +1,31 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { createActivity, getCountries } from "../../redux/actions";
 
 const Activities = () => {
+    
+    const dispatch = useDispatch();
+    const countries = useSelector(state => state.allCountries)
+    useEffect(() => {
+        dispatch(getCountries())
+        //return () => dispatch(PostActivity)
+    },[dispatch])
+    // const arrayCountries = countries.map(country => (
+    //     country.name
+    // ))
+    // console.log(' Array of countries',arrayCountries )
+
+
+
+
+
     // Estado para almacenar los valores del formulario
     const [activity, setActivity] = useState({
         name: "",
         difficulty: "",
         duration: "",
         season: "",
-        countries: "",
+        countries: "",//Error cuando quiero que sea Array
     });
 
     // Estado para almacenar los errores de validación
@@ -30,10 +48,12 @@ const Activities = () => {
         });
         setErrors(validate());
     };
+    console.log(activity)
 
     // Función para manejar el envío del formulario
     const handleSubmit = (event) => {
         event.preventDefault();
+        dispatch(createActivity(activity))
         // Aquí debes manejar la lógica de envío del formulario
     };
 
@@ -48,16 +68,16 @@ const Activities = () => {
             error.name = "El nombre debe contener solo letras y espacios";
         }
     
-        if (isNaN(activity.difficulty) || activity.difficulty < 1 || activity.difficulty > 5) {
-            error.difficulty = "La dificultad debe ser un número entre 1 y 5";
+        if (isNaN(activity.difficulty) || activity.difficulty.trim() === '') {
+            error.difficulty = "Agregue la Dificultad";
         }
     
         if (isNaN(activity.duration) || activity.duration <= 0) {
             error.duration = "La duración debe ser un número mayor que cero";
         }
-    
-        if (!["Verano", "Otoño", "Invierno", "Primavera"].includes(activity.season)) {
-            error.season = "La temporada debe ser 'Verano', 'Otoño', 'Invierno' o 'Primavera'";
+        
+        if (activity.season.length<=0) {
+            error.season = "Agregue una temporada"+ activity.season.length;
         }
         if (!activity.countries) {
             error.countries = "Agregar Pais";
@@ -82,13 +102,18 @@ const Activities = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="difficulty">Dificultad: </label>
-                    <input
-                        type="text"
+                <label htmlFor="difficulty">Dificultad: </label>
+                    <select
                         name="difficulty"
                         value={activity.difficulty}
                         onChange={handleChange}
-                    />
+                    >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                     {errors.difficulty && (<span style={{ color: "red" }}>{errors.difficulty}</span>)}
                 </div>
 
@@ -104,28 +129,40 @@ const Activities = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="season">Temporada: </label>
-                    <input
-                        type="text"
+                <label htmlFor="season">Temporada: </label>
+                    <select
                         name="season"
                         value={activity.season}
                         onChange={handleChange}
-                    />
+                    >
+                        <option value="Verano">Verano</option>
+                        <option value="Otoño">Otoño</option>
+                        <option value="Invierno">Invierno</option>
+                        <option value="Primavera">Primavera</option>
+                    </select>
                     {errors.season && (<span style={{ color: "red" }}>{errors.season}</span>)}
                 </div>
 
                 <div>
                     <label htmlFor="countries">Países: </label>
-                    <input
-                        type="text"
-                        name="countries"
-                        value={activity.countries}
-                        onChange={handleChange}
-                    />
+                    <select
+                            name="countries"
+                            value={activity.countries}
+                            onChange={handleChange}
+                        >
+                            {countries.map((country, index) => (
+                            <option key={index} value={[country.id]}>
+                                {country.name}
+                            </option>
+                            ))}
+                    </select>
                     {errors.countries && (<span style={{ color: "red" }}>{errors.countries}</span>)}
                 </div>
+                <div>
 
-                <button type="submit">Guardar</button>
+                    
+                </div>
+                <button type="submit" disabled= {Object.values(errors).some(error => error !== "")} >Guardar</button>
             </form>
         </div>
     );

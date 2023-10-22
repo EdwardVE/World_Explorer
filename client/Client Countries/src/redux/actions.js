@@ -1,5 +1,5 @@
 
-import { GET_COUNTRIES, GET_COUNTRY_DETAIL, CLEAN_DETAIL, ORDER, SEARCH_COUNTRY, SEARCH_COUNTRY_ERROR, GET_ACTIVITIES, FILTER_CONTINENT, FILTER_ACTIVITIES } from "./action-types";
+import { GET_COUNTRIES, GET_COUNTRY_DETAIL, CLEAN_DETAIL, ORDER, SEARCH_COUNTRY, SEARCH_COUNTRY_ERROR, GET_ACTIVITIES, FILTER_CONTINENT, FILTER_ACTIVITIES, CREATE_ACTIVITIES } from "./action-types";
 import axios from "axios";
 
 export const getCountries = () => {
@@ -54,6 +54,13 @@ export const getActivites = () => {
 }
 export const filterActivities =(parameter)=>{
     return { type: FILTER_ACTIVITIES, payload: parameter }
+}
+export const createActivity =(activity)=>{
+    console.log(activity, 'Antes del post')
+    return async (dispatch) => {
+        await axios.post('http://localhost:3001/activities', activity)
+        return { type: CREATE_ACTIVITIES, payload: activity };
+    }
 }
 
 

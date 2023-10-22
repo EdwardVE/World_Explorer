@@ -17,12 +17,13 @@ const FilterContinents = () => {
         console.log(event.target.value)
         return dispatch(filterContinent(event.target.value))
     }
+    console.log(countries, "aCÁ VAN CONUTRIES DEL CONTINENT")
     
     
     return (
         <span>
-            <span> Continent: </span>
             <select  onChange={handleFilterContinents }>
+                <option value={'Continent:'}>Continent:</option>
                 {uniqueContinents.map((continente, index) => (
                 <option key={index} value={continente}>
                     {continente}
