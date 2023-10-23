@@ -8,7 +8,7 @@ const SearchBar= () => {
 
     const dispatch = useDispatch();
     const handleChange = (event) => {
-        const { value } = event.target;
+        const { value } = event?.target;
         console.log(value)
         if(name)dispatch(searchCountry(name))
         setName(value);

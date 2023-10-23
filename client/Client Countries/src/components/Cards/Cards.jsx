@@ -18,9 +18,9 @@ const Cards = () => {
     useEffect(() => {
         dispatch(getCountries())
         dispatch(getActivites())
-        setCurrentPage(1)
+        //setCurrentPage(1)
         //return () => dispatch(cleanDetail())
-    }, [dispatch,totalPages]);
+    }, [dispatch]);
     
         return (
         <div>
