@@ -21,6 +21,12 @@ const Cards = () => {
         //setCurrentPage(1)
         //return () => dispatch(cleanDetail())
     }, [dispatch]);
+    console.log('Los paises de las Cards', countries)
+    useEffect(() => {
+        setCurrentPage(1)
+    }
+    ,[totalPages])
+
     
         return (
         <div>
@@ -41,6 +47,7 @@ const Cards = () => {
                     flagImage={country.flagImage}
                     name={country.name}
                     continent={country.continent}
+                    activities={country.activities}
                 />
             ))}
         </div>

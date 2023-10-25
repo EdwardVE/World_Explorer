@@ -89,7 +89,7 @@ const reducer = (state = initialState, action) => {
             if(uniqueCountriesArray.length === 0) uniqueCountriesArray=state.allCountries
             return{
                 ...state,
-                countries: uniqueCountriesArray
+                countries: [...uniqueCountriesArray]
 
             }
         case CREATE_ACTIVITIES:

@@ -1,0 +1,35 @@
+/* Landing.module.css */
+
+/* Estilo para el contenedor principal */
+.container {
+    text-align: center;
+    background-image: url('./Landing\ image\ .jpg'); /* Ruta a tu imagen de fondo */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+    height: 100vh;
+  }
+  /* Estilo para el título h1 */
+  .title {
+    font-size: 100px;
+    color: #ffffff;
+  }
+  
+  /* Estilo para el botón */
+  .button {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }

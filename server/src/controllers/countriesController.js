@@ -8,6 +8,7 @@ const axios = require("axios")
 const getNameCountryDB = async (country)=> {
     console.log('GET NAME COUNTRY');
     return await Country.findAll({
+        include: [{model: Activity, as: "activities"}],
         where: {
             name: {
                 [Op.iLike]: `%${country}%`, // Búsqueda insensible a mayúsculas y minúsculas
@@ -25,6 +26,7 @@ const getCountriesDB = async ()=> {
 const getCountryDetailDB = async (id)=> {
     console.log('GET COUNTRY DETAILS');
     return await Country.findOne({
+        include: [{model: Activity, as: "activities"}],
         where: { id: id },
         //include: Activity,
     });

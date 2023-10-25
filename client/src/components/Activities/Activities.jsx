@@ -8,10 +8,10 @@ const Activities = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const countries = useSelector(state => state.allCountries)
+
     useEffect(() => {
         dispatch(getCountries())
     },[dispatch])
-
 
     // Estado para almacenar los valores del formulario
     const [activity, setActivity] = useState({
@@ -21,7 +21,7 @@ const Activities = () => {
         season: "",
         countries: [],
     });
-
+    console.log(activity)
     // Estado para almacenar los errores de validación
     const [errors, setErrors] = useState({
         name: "",
@@ -36,6 +36,8 @@ const Activities = () => {
         const name = event.target.name;
         const value = event.target.value;
         console.log('name: '+name, 'value: '+ value);
+        
+        
         if (name === 'countries'){
             console.log('VA COUNTRIES del handle change')
             setActivity({
@@ -49,9 +51,9 @@ const Activities = () => {
                 [name]: value,
             });
         }
-        setErrors(validate());
+
+        
     };
-    console.log(activity)
 
     // Función para manejar el envío del formulario
     const handleSubmit = (event) => {
@@ -64,34 +66,39 @@ const Activities = () => {
     };
 
     // Función para realizar la validación de los campos
-    const validate = () => {
-        console.log('Entra a ERRORS')
-        const error = {};
-        if (activity.name.trim() === "") {
-            error.name = "Nombre es requerido";
-        }
-    
-        if (!/^[A-Za-z\s]+$/.test(activity.name)) {
-            error.name = "El nombre debe contener solo letras y espacios";
-        }
-    
-        if (isNaN(activity.difficulty) || activity.difficulty.trim() === '') {
-            error.difficulty = "Agregue la Dificultad";
-        }
-    
-        if (isNaN(activity.duration) || activity.duration <= 0) {
-            error.duration = "La duración debe ser un número mayor que cero";
-        }
+    useEffect(() => {
+        const validate = () => {
+            const error = {};
+            if (activity.name.trim() === "") {
+                error.name = "Nombre es requerido";
+            }
         
-        if (activity.season.length<=0) {
-            error.season = "Agregue una temporada"+ activity.season.length;
-        }
-        if (activity.countries.length===0) {
-            error.countries = "Agregar Pais";
-        }
+            if (!/^[A-Za-z\s]+$/.test(activity.name)) {
+                error.name = "El nombre debe contener solo letras y espacios";
+            }
+        
+            if (isNaN(activity.difficulty) || activity.difficulty.trim() === '') {
+                error.difficulty = "Agregue la Dificultad";
+            }
+        
+            if (isNaN(activity.duration) || activity.duration <= 0) {
+                error.duration = "La duración debe ser un número mayor que cero";
+            }
+            
+            if (activity.season.length <= 0) {
+                error.season = "Agregue una temporada";
+            }
+            
+            if (activity.countries.length === 0) {
+                error.countries = "Agregar País";
+            }
+            
+            return error;
+        };
+        
+        setErrors(validate());
+    }, [activity]);
 
-        return error;
-    };
     const handleDeleteCountry = (countryId) => {
         const updatedCountries = activity.countries.filter((id) => id !== countryId);
         setActivity({
@@ -113,7 +120,7 @@ const Activities = () => {
                         value={activity.name}
                         onChange={handleChange}
                     />
-                    {errors.name && (<span style={{ color: "red" }}>{errors?.name}</span>)}
+                    {errors.name && (<span style={{ color: "red" }}>{errors.name}</span>)}
                 </div>
 
                 <div>
@@ -130,7 +137,7 @@ const Activities = () => {
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    {errors.difficulty && (<span className={styles.error}>{errors?.difficulty}</span>)}
+                    {errors.difficulty && (<span className={styles.error}>{errors.difficulty}</span>)}
                 </div>
 
                 <div>
@@ -141,7 +148,7 @@ const Activities = () => {
                         value={activity.duration}
                         onChange={handleChange}
                     />
-                    {errors.duration && (<span className={styles.error} >{errors?.duration}</span>)}
+                    {errors.duration && (<span className={styles.error} >{errors.duration}</span>)}
                 </div>
 
                 <div>
@@ -157,14 +164,14 @@ const Activities = () => {
                         <option value="Invierno">Invierno</option>
                         <option value="Primavera">Primavera</option>
                     </select>
-                    {errors.season && (<span className={styles.error}>{errors?.season}</span>)}
+                    {errors.season && (<span className={styles.error}>{errors.season}</span>)}
                 </div>
 
                 <div>
                     <label htmlFor="countries">Países: </label>
                     <select
                             name="countries"
-                            value={activity.countries}
+                            value={activity.countries[0]}
                             onChange={handleChange}
                         >
                             {countries.map((country, index) => (
@@ -173,7 +180,7 @@ const Activities = () => {
                             </option>
                             ))}
                     </select>
-                    {errors.countries && (<span className={styles.error}>{errors?.countries}</span>)}
+                    {errors.countries && (<span className={styles.error}>{errors.countries}</span>)}
                 </div>
                 <div>
 
@@ -184,8 +191,9 @@ const Activities = () => {
                     <hr />
                     {countries
                         .filter(country => activity.countries.includes(country.id))
-                        .map(country => <div>
-                            <label key={country.id}>{country.name}        </label> 
+                        .map(country => 
+                        <div key={country.id}>
+                            <label >{country.name}        </label> 
                             <button type="button" onClick={() => handleDeleteCountry(country.id)}>Delete</button>
                             
                             

@@ -9,16 +9,15 @@ const SearchBar= () => {
     const dispatch = useDispatch();
     const handleChange = (event) => {
         const { value } = event?.target;
-        console.log(value)
-        if(name)dispatch(searchCountry(name))
         setName(value);
+        if(name)dispatch(searchCountry(name))
     }
     
     const onSearch = () => {
         console.log(name)
         if(name)dispatch(searchCountry(name))
     }
-
+    console.log(error)
     return (
         <div>
             <input type="text" name="name" placeholder="Name Country" value={name} onChange={handleChange} />
