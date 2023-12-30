@@ -15,8 +15,7 @@ const createActivitiesHandler = async (req, res) =>{//Body//! Manejar asincroní
     }
 }
 
-const getActivitiesHandler = async (req, res) =>{//Body
-    const{name}= req.body;  
+const getActivitiesHandler = async (req, res) =>{
     //res.status(200).send(`Vamo GET Activities: ${name}`);
         try {
             const activities = await getactivitiesDB()

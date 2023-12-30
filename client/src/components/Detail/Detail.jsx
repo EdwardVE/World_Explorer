@@ -37,7 +37,11 @@ const CountryDetail = () => {
                 <h2>Activities:</h2>
                 {activities.map((activity) => (
             <div className={styles.activityBox} key={activity.id}>
-                <h3>{activity.name}</h3>
+                <h3>Name: {activity.name} </h3>
+                <h3> Difficulty: {activity.difficulty} </h3>
+                <h3>Duration: {activity.duration} </h3>
+                <h3>Season: {activity.season} </h3>
+                
             </div>
             ))}
             </div>
