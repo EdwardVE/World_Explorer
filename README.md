@@ -54,11 +54,13 @@ ejecutar comando npm i en las caprtas client y server
 
 ## ▶️ Ejecutar localmente
 
-Dentro de la carpeta ./client, ejecuta:
-  ```
+Dentro de la carpeta `./client`, ejecuta:
+```
 npm start
-   ```
+```
  
-Dentro de la carpeta ./server, ejecuta:
-```npm start```
+Dentro de la carpeta `./server`, ejecuta:
+```
+npm start
+```
 
