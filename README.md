@@ -47,7 +47,7 @@ Estas tecnologías se combinaron para crear una Single Page Application robusta 
    
 ## 🛠️ instalación 
 
-ejecutar comando npm i en las caprtas client y server
+Ejecuta el comando `npm i` en las carpetas `client` y `server`.
   ```
  npm i
    ```
