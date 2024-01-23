@@ -1,50 +1,49 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
+# ![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
 # **COUNTRIES** | Proyecto Individual
 
-## **📌 OBJETIVOS**
+## **📌 Objetivos del proyecto**
 
--  Construir una Single Page Application utlizando las tecnologías: **React**, **Redux**, **Node**, **Express** y **Sequelize**.
--  Poner en práctica recursos básicos de estilos y diseño (UX : UI).
--  Afirmar y conectar los conceptos aprendidos en la carrera.
--  Aprender mejores prácticas.
--  Aprender y practicar el workflow de GIT.
--  Utilizar y practicar testing.
+✅ Construir una Single Page Application que proporciona información sobre diferentes países utilizando una API externa (incluido el enlace). Los objetivos específicos incluyen:
+
+- ✅ Desarrollar una aplicación que clasifique países de manera alfabética y por el número de habitantes.
+- ✅ Ofrecer la capacidad de ordenar países según las actividades turísticas disponibles.
+- ✅ Permitir la adición de nuevas actividades a cada país.
+- ✅ Incluir una barra de búsqueda que facilite la localización de países por nombre.
+
+Cada uno de estos objetivos se aborda como una funcionalidad individual en la aplicación.
+
+### Funcionalidades de la aplicación:
+
+- ✅ **Clasificación Alfabética y por Población:**
+  La aplicación permite a los usuarios ordenar la lista de países tanto alfabéticamente como por el número de habitantes.
+
+- ✅ **Ordenamiento por Actividades Turísticas:**
+  Se proporciona la capacidad de ordenar países según las actividades turísticas disponibles, ofreciendo a los usuarios una visión rápida de destinos potenciales.
+
+- ✅ **Adición de Nuevas Actividades:**
+  Los usuarios tienen la capacidad de agregar nuevas actividades a cada país, contribuyendo así a la expansión y actualización continua de la información.
+
+- ✅ **Búsqueda por Nombre:**
+  Incluye una barra de búsqueda que facilita la localización de países por nombre, mejorando la experiencia del usuario al encontrar información específica de manera eficiente.
 
 <br />
 
 ---
+## **Tecnologías Utilizadas**
 
-## **⏱ HORARIOS Y FECHAS**
+El proyecto se desarrolló utilizando las siguientes tecnologías:
 
-El proyecto individual tiene una duración máxima de tres semanas. Se inicia la primera semana con un Kick-Off, y se agendará una corrección personalizada la última semana.
+- **React**
+- **Redux**
+- **Node**
+- **Express**
+- **Sequelize**
 
-En el caso de completar todas las tareas antes de dicho lapso se podrá avisar a su instructor para coordinar una fecha de presentación del trabajo (DEMO).
-
-<br />
-
----
-
-## **⚠️ IMPORTANTE**
-
-Es necesario contar minimamente con la última versión estable de NodeJS y NPM. Asegúrate de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto. Actualmente las versiónes necesarias son:
-
--  **Node**: 12.18.3 o mayor
--  **NPM**: 6.14.16 o mayor
-
-Para verificar que versión tienes instalada:
-
-```bash
-node -v
-npm -v
-```
+Estas tecnologías se combinaron para crear una Single Page Application robusta y dinámica, proporcionando una experiencia interactiva y eficiente para los usuarios.
 
 
-Está permitido, **bajo tu responsabilidad**, actualizar las dependencias a versiones más actuales si lo deseas. Versiones mas actuales podrían presentar configuraciones diferentes respecto a las versiones en las que venimos trabajando durante el bootcamp.
 
-### **⛔️ Está rotundamente prohibido utilizar librerías externas para aplicar estilos a la SPA. Tendrás que utilizar CSS mediante algunas de las opciones vistas en el bootcamp (CSS, Legacy, Inline Styling, CSS Modules o Styled Components).**
-
-<br />
 
 ---
 ## **📋 SOBRE LA API**
