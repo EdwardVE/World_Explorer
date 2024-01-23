@@ -2,7 +2,7 @@
 
 # **COUNTRIES** | Proyecto Individual
 
-## **📌 Objetivos del proyecto**
+## **🎯 Objetivos del proyecto**
 
 Construir una Single Page Application que proporciona información sobre diferentes países utilizando una API externa. Los objetivos específicos incluyen:
 
@@ -18,7 +18,7 @@ Cada uno de estos objetivos se aborda como una funcionalidad individual en la ap
 
 ---
 
-## **Tecnologías Utilizadas**
+## ** 🚀 Tecnologías Utilizadas**
 
 El proyecto se desarrolló utilizando las siguientes tecnologías:
 
@@ -30,7 +30,7 @@ El proyecto se desarrolló utilizando las siguientes tecnologías:
 
 Estas tecnologías se combinaron para crear una Single Page Application robusta y dinámica, proporcionando una experiencia interactiva y eficiente para los usuarios.
 
-## **Requisitos para ejecutarla localmente**
+## ** ⚙️ Requisitos para ejecutarla localmente**
 1. instalar postgreSQL
 2. En la carpeta **`api`** deberás crear un archivo llamado: **`.env`** que tenga la siguiente forma:
 
@@ -44,5 +44,23 @@ Estas tecnologías se combinaron para crear una Single Page Application robusta 
 3. Reemplazar **`usuariodepostgres`** y **`passwordDePostgres`** con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
 
 4. Adicionalmente será necesario que crees, **desde psql (shell o PGAdmin)**, una base de datos llamada **`countries`**. Si no realizas este paso de manera manual no podrás avanzar con el proyecto.
+   
+## 🛠️ instalación 
 
+ejecutar comando npm i en las caprtas client y server
+  ```
+ npm i
+   ```
+
+## ▶️ Ejecutar localmente
+
+Dentro de la carpeta ./client, ejecuta:
+  ```
+npm start.
+   ```
+ 
+Dentro de la carpeta ./server, ejecuta:
+  ```
+npm start.
+   ```
 
