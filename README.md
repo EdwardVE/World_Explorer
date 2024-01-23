@@ -7,8 +7,11 @@
 Construir una Single Page Application que proporciona información sobre diferentes países utilizando una API externa (incluido el enlace). Los objetivos específicos incluyen:
 
 ✅ Desarrollar una aplicación que clasifique países de manera alfabética y por el número de habitantes.
+
 ✅ Ofrecer la capacidad de ordenar países según las actividades turísticas disponibles.
+
 ✅ Permitir la adición de nuevas actividades a cada país.
+
 ✅ Incluir una barra de búsqueda que facilite la localización de países por nombre.
 
 Cada uno de estos objetivos se aborda como una funcionalidad individual en la aplicación.
@@ -17,10 +20,13 @@ Cada uno de estos objetivos se aborda como una funcionalidad individual en la ap
 
 ✅ **Clasificación Alfabética y por Población:**
   La aplicación permite a los usuarios ordenar la lista de países tanto alfabéticamente como por el número de habitantes.
+  
 ✅ **Ordenamiento por Actividades Turísticas:**
   Se proporciona la capacidad de ordenar países según las actividades turísticas disponibles, ofreciendo a los usuarios una visión rápida de destinos potenciales.
+  
 ✅ **Adición de Nuevas Actividades:**
   Los usuarios tienen la capacidad de agregar nuevas actividades a cada país, contribuyendo así a la expansión y actualización continua de la información.
+  
 ✅ **Búsqueda por Nombre:**
   Incluye una barra de búsqueda que facilita la localización de países por nombre, mejorando la experiencia del usuario al encontrar información específica de manera eficiente.
 
