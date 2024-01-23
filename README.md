@@ -16,7 +16,7 @@ Cada uno de estos objetivos se aborda como una funcionalidad individual en la ap
 
 ---
 
-## ** 🚀 Tecnologías Utilizadas**
+## **🚀 Tecnologías Utilizadas**
 
 El proyecto se desarrolló utilizando las siguientes tecnologías:
 
@@ -28,7 +28,7 @@ El proyecto se desarrolló utilizando las siguientes tecnologías:
 
 Estas tecnologías se combinaron para crear una Single Page Application robusta y dinámica, proporcionando una experiencia interactiva y eficiente para los usuarios.
 
-## ** ⚙️ Requisitos para ejecutarla localmente**
+## **⚙️ Requisitos para ejecutarla localmente**
 1. instalar postgreSQL
 2. En la carpeta **`api`** deberás crear un archivo llamado: **`.env`** que tenga la siguiente forma:
 
